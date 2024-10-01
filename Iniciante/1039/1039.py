@@ -11,19 +11,20 @@
 
 # Saída
 # Para cada instância imprima uma única linha contendo MORTO, se o caçador morre, ou RICO se o caçador consegue colher a flor.
-import sys
+
 import math
 
 def lerLinhas():
-    linhas = []
+    linhas = [] 
     
     while True:
-        linha = input()
+        try:
         
-        if linha != '': 
+            linha = input()
             linhas.append(linha)
-        else:
-            break  
+        
+        except EOFError:
+            break
     
     return linhas
     
@@ -37,7 +38,7 @@ def temIntersecao(linhas):
         if d <= (R1 - R2):
             print('RICO')
         else:
-            print('POBRE')
+            print('MORTO')
 
 if __name__ == '__main__':
     linhas = lerLinhas()
