@@ -14,18 +14,31 @@
 import sys
 import math
 
-def temIntersecao():
-    for linha in sys.stdin:
+def lerLinhas():
+    linhas = []
+    
+    while True:
+        linha = input()
+        
+        if linha != '': 
+            linhas.append(linha)
+        else:
+            break  
+    
+    return linhas
+    
+
+def temIntersecao(linhas):
+    for linha in linhas:
         R1, X1, Y1, R2, X2, Y2 = map(int, linha.split())
         
-        # Calcula a distância entre os centros dos círculos
-        d = math.sqrt((X2 - X1) ** 2 + (Y2 - Y1) ** 2)
-        
-        # Verifica se o círculo do caçador cobre completamente o da flor
+        d = math.sqrt((X2 - X1) ** 2 + (Y2 - Y1) ** 2)   
+       
         if d <= (R1 - R2):
-            return True
+            print('RICO')
         else:
-            return False
+            print('POBRE')
 
 if __name__ == '__main__':
-    temIntersecao()
+    linhas = lerLinhas()
+    temIntersecao(linhas)
